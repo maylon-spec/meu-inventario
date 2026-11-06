@@ -1,1 +1,5 @@
 
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+android/local.properties
+android/meu_inventario_android.iml
