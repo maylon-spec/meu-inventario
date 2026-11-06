@@ -1,0 +1,28 @@
+
+workflows:
+  ios-build:
+    name: Meu Inventário - iOS
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+
+    scripts:
+      - name: Instalar dependências
+        script: flutter pub get
+
+      - name: Verificar código
+        script: flutter analyze
+
+      - name: Executar testes
+        script: flutter test
+
+      - name: Compilar aplicativo iOS
+        script: flutter build ios --release --no-codesign
+
+    artifacts:
+      - build/ios/iphoneos/*.app
+      - /tmp/xcodebuild_logs/*.log
